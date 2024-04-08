@@ -25,10 +25,10 @@ public class DTOObjectClient implements AutoCloseable {
     // socket으로 byte[] 전송    
     try {
 
-      HeaderDTO headerDTO = new HeaderDTO((char) 0x01, (char) 0x02);
+      ObjHeaderDTO objHeaderDTO = new ObjHeaderDTO((char) 0x01, (char) 0x02);
 
-      byte[] bytes = objectToByteArray(headerDTO);
-      System.out.println("* HeaderDTO: " + headerDTO.toString());
+      byte[] bytes = objectToByteArray(objHeaderDTO);
+      System.out.println("* ObjHeaderDTO: " + objHeaderDTO.toString());
 
       socket = new Socket(ip, port);
       os = socket.getOutputStream();

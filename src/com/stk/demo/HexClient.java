@@ -32,7 +32,7 @@ public class HexClient implements AutoCloseable {
       // System.out.println("* hx1: " + hx1);
       // System.out.println("* hx2: " + hx2);
       // System.out.println("* hx1 == hx2: " + (hx1.equals(hx2)));
-
+      
       socket = new Socket(ip, port);
       os = socket.getOutputStream();
       os.write(bytes);
