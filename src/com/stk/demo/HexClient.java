@@ -1,8 +1,6 @@
 package com.stk.demo;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.lang.AutoCloseable;
@@ -25,15 +23,15 @@ public class HexClient implements AutoCloseable {
     // socket으로 byte[] 전송    
     try {
 
-      String hexString = String.format("%16X%02X%02X%02X%02X", 0x3812121281282828L, 0x00, 0xf0, 0x01, 0x02);
+      String hexString = String.format("%016X%02X%02X%02X%02X%04X", 0x3812121281282828L, 0x00, 0xf0, 0x01, 0x02, 0x0001);
       System.out.println("* hexString: " + hexString);
       byte[] bytes = hexStringToByteArray(hexString);
-      long lLMagicNumber = 0x3812121281282828L;
-      String hx1 = Long.toHexString(lLMagicNumber);
-      String hx2 = String.format("%16X", 0x3812121281282828L);
-      System.out.println("* hx1: " + hx1);
-      System.out.println("* hx2: " + hx2);
-      System.out.println("* hx1 == hx2: " + (hx1.equals(hx2)));
+      // long lLMagicNumber = 0x3812121281282828L;
+      // String hx1 = Long.toHexString(lLMagicNumber);
+      // String hx2 = String.format("%016X", 0x3812121281282828L);
+      // System.out.println("* hx1: " + hx1);
+      // System.out.println("* hx2: " + hx2);
+      // System.out.println("* hx1 == hx2: " + (hx1.equals(hx2)));
 
       socket = new Socket(ip, port);
       os = socket.getOutputStream();
