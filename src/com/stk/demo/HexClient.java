@@ -24,6 +24,7 @@ public class HexClient implements AutoCloseable {
     try {
 
       String hexString = String.format("%016X%02X%02X%02X%02X%04X", 0x3812121281282828L, 0x00, 0xf0, 0x01, 0x02, 0x0001);
+      hexString += String.format("%016X%032X%02X", 0x5L, 0x1001311L, 0x00);
       System.out.println("* hexString: " + hexString);
       byte[] bytes = hexStringToByteArray(hexString);
       // long lLMagicNumber = 0x3812121281282828L;
